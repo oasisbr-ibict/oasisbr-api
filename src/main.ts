@@ -13,11 +13,11 @@ const oasisbrFormat = printf(({ level, message, timestamp }) => {
 
 const fileTransport = new winston.transports.DailyRotateFile({
   filename: 'oasisbr-%DATE%.log',
-  datePattern: 'YYYY-MM-DD-HH',
+  datePattern: 'YYYY-MM-DD',
   zippedArchive: true,
   dirname: './logs',
   maxSize: '20m',
-  maxFiles: '14d',
+  maxFiles: '10d',
   level: 'debug',
   format: winston.format.combine(timestamp(), oasisbrFormat),
 });
